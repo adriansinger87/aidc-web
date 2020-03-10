@@ -49,16 +49,21 @@
             <table class="highlight">
               <thead>
                 <tr>
+                  <th>No.</th>
                   <th>EPC</th>
                   <th>Name</th>
+                  <th>Signal</th>
                   <th>Last Seen</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="p in products">
-                  <td>{{ p.Epc }}</td>
+                <tr v-for="(p, i) in products">
+                  <td class="grey-text">{{ i + 1 }}</td>
+                  <td><i class="mdi mdi-qrcode tooltipped grey-text " data-position="top"
+                         v-bind:data-tooltip="p.Epc" ></i></td>
                   <td>{{ p.Name }}</td>
-                  <td><i v-bind:class="castSeconds(p.seconds)"></i> {{ castTimestamp(p.Timestamp) }}</td>
+                  <td>{{ p.Signal }}</td>
+                  <td class="valign-wrapper"><i v-bind:class="castSeconds(p.seconds)"></i> {{ castTimestamp(p.Timestamp) }}</td>
                 </tr>
               </tbody>
             </table>

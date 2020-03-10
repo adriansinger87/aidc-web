@@ -67,6 +67,11 @@ $(function () {
         vue.products = data;
         vue.lastUpdate = new Date(); 
         startInterval();
+
+        Vue.nextTick(() => {
+            $('.tooltipped').tooltip();
+        });
+
     }
 
     // -- vue methods
@@ -94,7 +99,7 @@ $(function () {
     }
 
     function castSeconds(sec) {
-        var mdiClass = "mdi mdi-sm ";
+        var mdiClass = "left mdi mdi-sm ";
         if (sec < 2)            mdiClass += "mdi-circle-slice-8 light-green-text text-accent-4";
         else if (sec < 4)       mdiClass += "mdi-circle-slice-7 green-text";
         else if (sec < 6)       mdiClass += "mdi-circle-slice-6 light-green-text";
@@ -137,6 +142,7 @@ $(function () {
         });
 
         vue.$forceUpdate();
+        
     }
 
   
