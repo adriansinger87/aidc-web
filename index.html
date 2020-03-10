@@ -45,6 +45,7 @@
         </div>
         <div v-else>
           <div v-if="products.length > 0">
+
             <table class="highlight">
               <thead>
                 <tr>
@@ -61,6 +62,7 @@
                 </tr>
               </tbody>
             </table>
+            
           </div>
           <div v-else>
             keine Daten empfangen.
@@ -70,6 +72,52 @@
       </div>
     </div>
     
+
+    <footer class="page-footer teal">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">About</h5>
+            <p class="grey-text text-lighten-4">
+              AIDC-Web is a demo application that loads and presents data from the Industrial Internet of Things (IIoT).
+              The data is fetched via Mqtt and is bound to the frontend with the Vue.js library.
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Technologies</h5>
+
+            <div class="chip"><a href="https://www.hivemq.com" target="_blank">
+              <i class="mdi mdi-alpha-m-box-outline left"></i>HiveMQ</a>
+            </div>
+
+            <div class="chip"><a href="https://www.eclipse.org/paho/clients/js/" target="_blank">
+              <i class="mdi mdi-chat-outline left"></i>Paho-Mqtt JS</a>
+            </div>
+
+            <div class="chip"><a href="https://vuejs.org/" target="_blank">
+              <i class="mdi mdi-vuejs left"></i>Vue JS</a>
+            </div>
+
+            <div class="chip"><a href="https://materializecss.com/" target="_blank">
+              <i class="mdi mdi-material-ui left"></i>Materialize</a>
+            </div>
+
+            <div class="chip"><a href="https://materialdesignicons.com/" target="_blank">
+              <i class="mdi mdi-vector-square left"></i>Material Design Icons</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2020 <a href="https://www.adrian-singer.de/" target="_blank">Adrian Singer</a>
+          | <a href="https://github.com/adriansinger87/aidc-web" target="_blank">GitHub</a>
+          <a class="grey-text text-lighten-4 right" href="https://betrieb-machen.de/" target="_blank">
+          Betrieb machen 4.0</a>
+        </div>
+      </div>
+    </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>

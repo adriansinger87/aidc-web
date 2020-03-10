@@ -13,3 +13,18 @@
 .toast-success {
     background-color: #388e3c;
 }
+
+.chip {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.chip a {
+    color: white;
+}
+.chip i {
+    font-size: 1.6em;
+}
+
+.footer-copyright a {
+    color: white;
+}
