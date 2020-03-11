@@ -36,3 +36,7 @@ function showWarningToast(text) {
     };
     M.toast(d);
 }
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
