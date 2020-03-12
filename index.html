@@ -50,6 +50,7 @@
                 <tr>
                   <th>No.</th>
                   <th>EPC</th>
+                  <th>Image</th>
                   <th>Name</th>
                   <th>Signal</th>
                   <th>Last Seen</th>
@@ -60,10 +61,12 @@
                   <td class="grey-text">{{ i + 1 }}</td>
                   <td><i class="mdi mdi-qrcode tooltipped grey-text" data-position="top"
                       v-bind:data-tooltip="p.Epc"></i></td>
-                  <td>{{ p.Name }}</td>
+                  <td><img width="42" class="circle left" v-bind:src="'assets/img/products/' + p.Name + '.jpg' " /></td>
+                  <td class="valign-wrapper">{{ p.Name }}</td>
                   <td>{{ p.Signal }}</td>
-                  <td class="valign-wrapper"><i
-                      v-bind:class="castSeconds(p.seconds)"></i>{{ castTimestamp(p.Timestamp) }}</td>
+                  <td class="valign-wrapper">
+                    <i v-bind:class="castSeconds(p.seconds)"></i>{{ castTimestamp(p.Timestamp) }}
+                  </td>
                 </tr>
               </tbody>
             </table>
