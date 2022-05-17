@@ -1,8 +1,7 @@
 $(function () {
 
-    var client;
+    var mqtt;
     var vue;
-
     var refreshInterval;
 
     $(document).ready(function() {
@@ -38,22 +37,26 @@ $(function () {
     }
 
     function startMqtt() {
-        client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "aidc-web-" + getRandomInt(9999));
+
+        var broker = "broker.hivemq.com";
+        var port = 8000;
+        var clientId = "aidc-web-" + getRandomInt(9999);
+        mqtt = new Paho.MQTT.Client(broker, port, clientId);
 
         // set callback handlers
-        client.onConnectionLost = onConnectionLost;
-        client.onMessageArrived = onMessageArrived;
+        mqtt.onConnectionLost = onConnectionLost;
+        mqtt.onMessageArrived = onMessageArrived;
         
         // connect the client
-        client.connect({
+        mqtt.connect({
             cleanSession: true,
             onSuccess: function () {
-                client.subscribe("m40/aidc/products");
-                showSuccessToast( 'Mqtt connected');
+                mqtt.subscribe("m40/aidc/products");
+                showSuccessToast( 'Mqtt connected to ' + broker);
             },
             onFailure: function () {
-                console.error("mqtt connection failed to host: " + host + " port: " + port);
-                showErrorToast('Mqtt connection failed');
+                console.error("mqtt connection failed to host: " + broker + " port: " + port);
+                showErrorToast('Mqtt connection failed for ' + broker +' and port ' + port);
             }
         });
     }
@@ -114,7 +117,6 @@ $(function () {
 
         return mdiClass;
     }
-
     
     function castSignal(signal) {
         var mdiClass = "left mdi mdi-signal ";
@@ -158,7 +160,5 @@ $(function () {
 
         vue.$forceUpdate();
         
-    }
-
-  
+    }  
 });
