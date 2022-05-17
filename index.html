@@ -52,7 +52,7 @@
                   <th>EPC</th>
                   <th>Image</th>
                   <th>Name</th>
-                  <th>Signal</th>
+                  <th>Signal [<a href="https://en.wikipedia.org/wiki/Received_signal_strength_indication" target="_blank">RSSI</a>]</th>
                   <th>Last Seen</th>
                 </tr>
               </thead>
@@ -63,7 +63,7 @@
                       v-bind:data-tooltip="p.Epc"></i></td>
                   <td><img width="42" class="circle left z-depth-2" v-bind:src="'assets/img/products/' + p.Name + '.jpg' " /></td>
                   <td class="valign-wrapper">{{ p.Name }}</td>
-                  <td>{{ p.Signal }}</td>
+                  <td> <i v-bind:class="castSignal(p.Signal)"></i>{{ p.Signal }}</td>
                   <td class="valign-wrapper">
                     <i v-bind:class="castSeconds(p.seconds)"></i>{{ castTimestamp(p.Timestamp) }}
                   </td>

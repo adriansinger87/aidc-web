@@ -29,7 +29,8 @@ $(function () {
             methods: {
                 castLastUpdate: castLastUpdate,
                 castTimestamp: castTimestamp,
-                castSeconds: castSeconds
+                castSeconds: castSeconds,
+                castSignal: castSignal
             },
             updated: function () {
             }
@@ -111,6 +112,20 @@ $(function () {
         else if (sec > 16)      mdiClass += "mdi-circle-outline deep-orange-text";
         else                    mdiClass += "mdi-circle-outline blue-grey-text";
 
+        return mdiClass;
+    }
+
+    
+    function castSignal(signal) {
+        var mdiClass = "left mdi mdi-signal ";
+        console.log(signal);
+
+        if (signal >= -45)          mdiClass += "mdi-signal-cellular-3 green-text";
+        else if (signal >= -65)     mdiClass += "mdi-signal-cellular-2 light-green-text";
+        else if (signal >= -75)     mdiClass += "mdi-signal-cellular-1 cyan-text";
+        else if (signal >= -85)     mdiClass += "mdi-signal-cellular-outline blue-text text-accent-2";
+        else if (signal < -85)      mdiClass += "mdi-signal-off blue-grey-text";     
+        
         return mdiClass;
     }
 
